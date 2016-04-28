@@ -276,27 +276,28 @@ public class ControlesDeBatalha extends Controlador {
 						}
 						
 						cb.run();
-					}
-				}
-				
-				if (cb.treinador1.treinadorVivo() && cb.poke2.getHP() > 0) {
-					System.out.println("Continuar batalha? (S / N)");
-					decisao = cb.sc.next().toUpperCase();
-					
-					if (decisao.equals("S")) {
-						System.out.println("Escolha um pokémon para continuar.");
-						cb.treinador1.imprimePokemons();
-						decisao = cb.sc.next().toUpperCase();
 						
-						cb.addEvent(cb.new TrocarPokemon(Integer.parseInt(decisao)));
-						cb.execute();
-						decisao = "S";
+						if (cb.treinador1.treinadorVivo() && cb.poke2.getHP() > 0) {
+							System.out.println("Continuar batalha? (S / N)");
+							decisao = cb.sc.next().toUpperCase();
+						
+							if (decisao.equals("S")) {
+								System.out.println("Escolha um pokémon para continuar.");
+								cb.treinador1.imprimePokemons();
+								decisao = cb.sc.next().toUpperCase();
+								
+								cb.addEvent(cb.new TrocarPokemon(Integer.parseInt(decisao)));
+								cb.execute();
+								decisao = "S";
+							}
+						}
 					}
-				}
-				else if (!cb.treinador1.treinadorVivo()) {
-					decisao = "N";
-					System.out.println("O treinador perdeu, o jogo acabou!");
-					System.out.println("Favor se dirigir ao Centro Pokemon mais próximo para voltar a jogar.");
+					
+					if (!cb.treinador1.treinadorVivo()) {
+						decisao = "N";
+						System.out.println("O treinador perdeu, o jogo acabou!");
+						System.out.println("Favor se dirigir ao Centro Pokemon mais próximo para voltar a jogar.");
+					}
 				}
 			}
 		}
