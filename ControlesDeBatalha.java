@@ -277,7 +277,7 @@ public class ControlesDeBatalha extends Controlador {
 						
 						cb.run();
 						
-						if (cb.treinador1.treinadorVivo() && cb.poke2.getHP() > 0) {
+						if (cb.treinador1.treinadorVivo() && cb.poke1.getHP() <= 0) {
 							System.out.println("Continuar batalha? (S / N)");
 							decisao = cb.sc.next().toUpperCase();
 						
