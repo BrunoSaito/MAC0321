@@ -5,6 +5,8 @@ import java.util.Scanner;
 public class ControlesDeBatalha extends Controlador {
 	static final int NORMAL = 1;
 	
+	int teste = 0;
+	
 	private Pokemon poke1;
 	private Pokemon poke2;
 	private Treinador treinador1;
@@ -236,9 +238,11 @@ public class ControlesDeBatalha extends Controlador {
 						if (decisao.equals("A")) {
 							cb.poke1.imprimeAtaques();
 							decisao = cb.sc.next().toUpperCase();
+							teste++;
 							
 							cb.addEvent(cb.new Atacar(cb.treinador1, cb.selvagem, Integer.parseInt(decisao), cb.poke1));
 							System.out.println("Adicionei ataque treinador");
+							if (teste == 2) cb.execute();
 						}
 						else if (decisao.equals("M")) {
 							cb.treinador1.imprimeMochila();
